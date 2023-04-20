@@ -1,4 +1,5 @@
 import styles from './App.module.css'
+import ScoreAndResults from './components/ScoreAndResults'
 
 function App() {
 
@@ -8,6 +9,7 @@ function App() {
         <h1>Rock, Paper, Scissors</h1>
         <p>React TypeScript Game!</p>
       </div>
+      <ScoreAndResults />
     </div>
   )
 }
