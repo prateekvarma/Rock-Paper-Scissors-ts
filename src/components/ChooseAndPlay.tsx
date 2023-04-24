@@ -1,3 +1,4 @@
+import { useOptions } from '../context/optionsContext';
 import styles from './ChooseAndPlay.module.css';
 import HandSelection from './HandSelection';
 
@@ -8,13 +9,15 @@ import {
 } from 'react-icons/fa';
 
 const ChooseAndPlay = () => {
+  const optionsContext = useOptions();
+
+  const handOptionsArray = optionsContext.options.map((item) => {
+    return <HandSelection name={item.name} icon={item.icon} />;
+  });
+
   return (
     <>
-      <div className={styles.choiceBtnCtn}>
-        <HandSelection name='Rock' icon={<FaRegHandRock size={60} />} />
-        <HandSelection name='Paper' icon={<FaRegHandPaper size={60} />} />
-        <HandSelection name='Scissors' icon={<FaRegHandScissors size={60} />} />
-      </div>
+      <div className={styles.choiceBtnCtn}>{handOptionsArray}</div>
       <button className={styles.playBtn}>Play</button>
     </>
   );

@@ -1,10 +1,15 @@
-import { createContext } from 'react';
+import { createContext, useContext } from 'react';
 import {
   FaRegHandPaper,
   FaRegHandRock,
   FaRegHandScissors,
 } from 'react-icons/fa';
-import { HandOption, Ioptions, IoptionsContext, Props } from './optionsContextTypes';
+import {
+  HandOption,
+  Ioptions,
+  IoptionsContext,
+  Props,
+} from './optionsContextTypes';
 
 const options: Ioptions[] = [
   { name: HandOption.rock, icon: <FaRegHandRock size={60} /> },
@@ -26,4 +31,9 @@ export function OptionsProvider(props: Props) {
       {props.children}
     </OptionsContext.Provider>
   );
+}
+
+export function useOptions() {
+  const context = useContext(OptionsContext);
+  return context;
 }
