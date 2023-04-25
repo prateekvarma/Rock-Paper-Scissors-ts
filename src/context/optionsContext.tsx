@@ -10,6 +10,7 @@ import {
   IoptionsContext,
   Props,
 } from './optionsContextTypes';
+import { initialState } from './initialContextValues';
 
 const options: Ioptions[] = [
   { name: HandOption.rock, icon: <FaRegHandRock size={60} /> },
@@ -19,6 +20,7 @@ const options: Ioptions[] = [
 
 const OptionsContext = createContext<IoptionsContext>({
   options: [],
+  state: initialState
 });
 
 export function OptionsProvider(props: Props) {
