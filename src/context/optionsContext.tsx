@@ -1,4 +1,4 @@
-import { createContext, useContext } from 'react';
+import { createContext, useContext, useReducer } from 'react';
 import {
   FaRegHandPaper,
   FaRegHandRock,
@@ -11,6 +11,7 @@ import {
   Props,
 } from './optionsContextTypes';
 import { initialState } from './initialContextValues';
+import scoreReducer from '../reducers/scoreReducer';
 
 const options: Ioptions[] = [
   { name: HandOption.rock, icon: <FaRegHandRock size={60} /> },
@@ -20,12 +21,17 @@ const options: Ioptions[] = [
 
 const OptionsContext = createContext<IoptionsContext>({
   options: [],
-  state: initialState
+  state: initialState,
+  dispatch: () => {}
 });
 
 export function OptionsProvider(props: Props) {
+  const [state, dispatch] = useReducer(scoreReducer, initialState)
+
   const contextValue = {
     options,
+    state,
+    dispatch
   };
 
   return (

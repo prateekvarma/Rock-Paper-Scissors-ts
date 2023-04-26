@@ -1,6 +1,6 @@
 import { IInitialState } from "./optionsContextTypes";
 
-export const initialState: IInitialStateialState = {
+export const initialState: IInitialState = {
     playerHand: 0,
     computerHand: 0,
     runTimer: false,
