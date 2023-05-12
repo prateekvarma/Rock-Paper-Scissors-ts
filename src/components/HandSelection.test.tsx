@@ -8,13 +8,15 @@ describe('Hand Selection', () => {
     render(
       <HandSelection
         name='paper'
-        icon={<FaRegHandPaper />}
+        icon={<FaRegHandPaper data-testid='paper' />}
         handChoiceIndex={2}
       />
     );
 
     const hand = screen.getByText(/paper/i);
+    const icon = screen.getByTestId('paper')
 
     expect(hand).toBeInTheDocument();
+    expect(icon).toBeVisible()
   });
 });
